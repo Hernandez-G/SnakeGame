@@ -6,8 +6,6 @@ let gameBoard;
 let context;
 
 
-//snake body
-let snakeBody = []
 
 //snake head
 
@@ -19,12 +17,17 @@ let snakeY = blockSize * 5;
 let velocityX = 0;
 let velocityY = 0;
 
+//snake body
+let snakeBody = []
+
 //snake food
 
 let foodX;
 let foodY;
 
 
+//game over
+let gameOver = false;
 
 window.onload = function() {
     gameBoard = document.getElementById("gameBoard");
@@ -41,6 +44,13 @@ window.onload = function() {
 }
 
 function update() {
+
+    //stops drawing when game is over
+    if (gameOver) {
+        return;
+    }
+
+
     context.fillStyle="black";
     context.fillRect(0, 0, gameBoard.width, gameBoard.height);
 
@@ -56,7 +66,7 @@ function update() {
         snakeBody[i] = snakeBody[i-1];
     }
 
-    //if snake has a body then set body to head
+    //if snake has a body then set [0] (before the head) = head [snakeX, snakeY]
     if (snakeBody.length) {
         snakeBody[0] = [snakeX, snakeY];
     }
@@ -68,6 +78,21 @@ function update() {
     for (let i = 0; i < snakeBody.length; i++) {
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize)
     }
+    //gameOver Logic
+    if (snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
+        gameOver = true;
+        alert("Game Over");
+
+    }
+    //using a for loop because we want to read each segment
+    for (let i = 0; i < snakeBody.length; i++){
+        if (snakeX = snakeBody[i][0] && snakeY == snakeBody[i][1]) {
+            gameOver = true;
+            alert("Game Over!")
+        }
+    }
+
+
 
 }
 
