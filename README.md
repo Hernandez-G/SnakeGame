@@ -2,8 +2,8 @@
 
 <p>Created a basic JavaScript game that is responsive with keyboard arrows.</p>
 
-<a href="https://hernandez-g.github.io/SnakeGame/">[Launch App]<a> :&nbsp :&nbsp
-<a href="https://www.youtube.com/watch?v=baBq5GAL0_U">[Youtube]<a> :&nbsp :&nbsp
+<a href="https://hernandez-g.github.io/SnakeGame/">[Launch App]<a>
+<a href="https://www.youtube.com/watch?v=baBq5GAL0_U">[Youtube]<a>
 
 <br/>
 
